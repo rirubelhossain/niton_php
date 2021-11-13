@@ -253,5 +253,182 @@ class FileUtil{
 $file = new FileUtil('./sample.txt' , 'r') ;
 $file->display() ;
 
+class Addition{
+    private $number_1 ;
+    private $number_2 ;
+    function __construct($number , $number1)
+    {
+        $this->addfunction($number , $number1);
+    }
+    function addfunction($number, $number1){
+        $result = $number + $number1 ;
+        echo "The result is = ".$result ;
+    }
+    function __destruct()
+    {
 
+    }
+}
+echo "<br>";
+$aa = new Addition(12,12);
+
+
+$data = 10  ;
+echo "<br>";
+var_dump($data);
+echo "<br>";
+$data1 = 10.23 ;
+var_dump($data1) ;
+$sting =  "Rubel Hossain" ;
+echo "<br>";
+var_dump($sting) ;
+echo "<br>";
+
+$data = array('Name'=>'rubel');
+var_dump($data);
+echo "<br>";
+class BlogPost{
+    private $author = "Niton";
+    private $post = "this is not serious matter";
+}
+$data = new BlogPost() ;
+var_dump($data) ;
+echo "<br>";
+class User{
+    private $name = "" ;
+    public function __construct($name){
+        $this->name = $name;
+    }
+    public function setName($name){
+        $this->name = $name;
+    }
+    public function showName(){
+        echo "Name is = :" .$this->name."<br>";
+    }
+}
+
+$u1 = new User("Rustom") ;
+$u2 = $u1 ;
+$u1->setName('Rubel');
+$u1 = NULL ;
+$u2 ->showName() ;
+echo "<br>";
+$u3 = new User("Rasel");
+$u4 = &$u3 ;
+$u4->showName();
+$u3->setName("Shuvo");
+$u3 = NULL ;
+//$u4 ->showName() ;
+/// how use array on class
+
+class Consultant{
+    private $name = "";
+    private $role = "";
+    public function __construct($name , $role){
+        $this->name= $name;
+        $this->role= $role;
+    }
+    public function showRoles()
+    {
+        echo "Name: ".$this->name ."<br>" ;
+        echo "Roles: ".$this->role ."<br>" ;
+    }
+}
+echo "<br>";
+$data_r = [] ;/// this is an array 
+
+$r1 = new Consultant("Rubel","Software Developer");
+$data_r[] = $r1 ;
+$r2 = new Consultant("Rasel", "Cricketer");
+$data_r[] = $r2 ;
+
+$r3 = new Consultant("Amin", "Engineer");
+$data_r[] = $r3 ;
+
+
+$i = 1 ;
+foreach($data_r as $key)
+{
+    echo "<br> Role # ".$i .": <br>";
+    $key->showRoles();
+    ++$i ;
+}
+
+class Students{
+    private $name = "";
+    private $dept = "";
+    public function __construct($name , $dept){
+        $this->name = $name;
+        $this->dept = $dept;
+    }
+    public function showInfo_(){
+        echo "Name: ". $this->name ."<br>";
+        echo "Name of the department : ". $this->dept."<br>";
+    }
+}
+echo "<br>";
+// Create an arry 
+$data_student = [] ;
+$s1 = new Students("Rubel", "Computer Science and Engineering");
+$data_student[] = $s1 ;
+$s2 = new Students("Amin","Computer Science and Engineering");
+$data_student[] = $s2 ;
+$s3 = new Students("shuvo", "HSC_science");
+$data_student[] = $s3 ;
+
+$s4 = new Students("Rasel", "Environmental Science") ;
+$data_student[]  = $s4 ;
+
+$j= 1 ;
+foreach($data_student  as $key)
+{
+    echo "<br>Student # ". $j. ":<br>";
+    $key->showInfo_();
+    ++$j ;
+}
+echo "<br>";
+/// how to read data form database like 
+class Userr{
+    private $id = "";
+    private $username = "" ;
+    private $active = "";
+
+    public function __construct($id , $username , $active){
+        $this->id = $id;
+        $this->username = $username;
+        $this->active = $active;
+    }
+    public function showUserinfo(){
+        echo "ID : " . $this->id . "<br>";
+        echo "UserName : " . $this->username . "<br>";
+        echo "Active Status : " . $this->active."<br>";
+    }
+}
+    /// Read table data and create object array
+    function readUserFromDatabase(&$users){
+        $table_data = [['1','Rubel.hossain@gmail.com','1'],
+                       ['2', "Rasel.hossain@gmail.com",'1'],
+                       ['3', 'Amin Mahamud@gmail.com', '1']];
+        //Create user object and populate users array
+        foreach($table_data as $key){
+            $id = $key[0] ;
+            $username= $key[1];
+            $active = $key[2];
+            $users = new Userr($id, $username,$active);
+        }
+    }
+    /// Create Empty array
+    $users = [] ;
+    /// Pass arry as referance
+    readUserFromDatabase($users);
+    $k = 1 ;
+    foreach($users as $u )
+    {
+        echo "<br>User # " . $k . ": <br>";
+        $u->showUserinfo() ;
+        ++$k ;
+    }
+?>
+<?php
+    
 ?>
