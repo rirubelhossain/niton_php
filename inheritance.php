@@ -174,5 +174,84 @@ $pn ->showPrimes() ;
 echo"<br><br>";
 echo "total number of prime is = " .$pn->count;
 
+class Product {
+    protected $name = "Product Name";
+    protected $size = "Product Size";
+    protected $price = 0.0;
+
+    //read method
+    public function getName() : string{
+        return $this->name;
+    }
+    public function getSize() : string{
+        return $this->size;
+    }
+    public function getPrice() : float{
+        return $this->price;    
+    }
+    //write methods
+    public function setName($name){
+        //validation for string and length
+        //which conforms proper encapsulation
+        if(is_string($name) && strlen($name) < 64){
+            $this->name = (string)$name;
+        }else{
+            $this->name = substr((string)$name , 0 , 64);
+        }
+    }
+    public function setSize($size){
+
+    }
+}
+/// how to use construct in program
+class Product_update{
+    private $name = "" ;
+    private $price = 0.0 ;
+
+    function __construct(){
+        print "\nProduct Constructor\n";
+        print "------------------------\n";
+    }
+    function __destruct()/// destruct always used in stack which is print reverse order
+    {
+        print "<br> Destorying ". $this->name . "<br>";
+    }
+    public function setName($name){
+        $this->name = $name;
+    }
+    public function setPrice($price){
+        $this->price = $price;
+    }
+    public function showInfo(){
+        print "Name: " . $this->name . "<br>";
+        print "Price: " . $this->price . "<br>";
+    }
+}
+print "<br>";
+$hdd = new Product_update() ;
+$hdd->setName('wd 2tb');
+$hdd->setPrice(6500.00);
+
+$hdd->showInfo();
+echo "<br>";
+class FileUtil{
+    private $handle ;
+    private $filename ;
+    public function __construct($filename , $filemode){
+        $this->filename = $filename;
+        $this->handle = fopen($filename , $filemode);
+    }
+    public function __destruct(){
+        if($this->handle){
+            fclose($this->handle); /// realease memory
+        }
+    }
+    public function display(){
+        echo fread($this->handle , filesize($this->filename)) ;
+    }
+}
+$file = new FileUtil('./sample.txt' , 'r') ;
+$file->display() ;
+
 
 ?>
