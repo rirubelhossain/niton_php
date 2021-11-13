@@ -72,5 +72,4 @@ var_dump($magazine);
 
 
 
-
 ?>
