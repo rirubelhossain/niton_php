@@ -2,7 +2,7 @@
 
 /// how to use abstract class in program
 abstract class shape{
-    protected static $id  ;
+    public static $id  ;
     public function __construct(){
         self::$id++ ;
     }
@@ -16,7 +16,7 @@ class Circle extends shape{
     }
     public function getArea(){ // body implement here 
         $area = M_PI * $this->m_fRadious  * $this->m_fRadious;
-        echo "<br> Circle Area with ID " .self::$id." : is " . $area . "<br><br>";
+        echo "<br> Circle Area with ID " . self:: $id." : is " . $area . "<br><br>";
     }
 }
 class Rectange extends shape{
@@ -38,5 +38,8 @@ $circle->getArea() ;
 
 $rect = new Rectange(10, 10) ;
 $rect->getArea() ;
+
+echo M_PI ;
+
 
 ?>
