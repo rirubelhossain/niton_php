@@ -219,9 +219,10 @@ echo "Again this line should be execute or not let's see what happed in line ", 
 echo "so twice ta eikhane bondhu seita hosse normally akhn aar any line execute hbe na cause this is an uncaught error so php engine are not continue run this statement so it's very interesting to learing";
 echo "That's why try and catch block are the most important to use amr bhai vlo lagse ";
 
-
-
 echo "ok<br><br>";
+
+
+
 
 
 

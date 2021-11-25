@@ -1,7 +1,6 @@
 <?php
 
-namespace A;
-
+namespace A\B;
 class Add{
     private $number1 ;
     private $number2 ;
@@ -21,7 +20,6 @@ class Add{
         echo "The result will be = ", $result . "<br>";
     }
 }
-
 
 
 ?>
